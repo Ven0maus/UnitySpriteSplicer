@@ -1,5 +1,5 @@
 # UnitySpriteSplicer
-Slices a sprite into multiple square sprites, supports rotation and scaling
+Slices a sprite into multiple square sprites, supports positioning, rotation and scaling.
 
 # Usage
 ```csharp
