@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Assets.Scripts.Libraries.UnityHelpers
 {
@@ -17,7 +17,8 @@ namespace Assets.Scripts.Libraries.UnityHelpers
         {
             var texture = sprite.texture;
             var spliceParent = new GameObject("Splices");
-            var spliceSize = sprite.pixelsPerUnit / splices;
+            var spliceSizeX = texture.width / splices;
+            var spliceSizeY = texture.height / splices;
 
             float split = 1f / splices;
             float prevValueX = -(split * (splices / 2f)) + (split / 2f);
@@ -30,7 +31,7 @@ namespace Assets.Scripts.Libraries.UnityHelpers
                 {
                     if (j != 0)
                         prevValueY += split;
-                    Sprite newSprite = Sprite.Create(texture, new Rect(i * spliceSize, j * spliceSize, spliceSize, spliceSize), new Vector2(0.5f, 0.5f), sprite.pixelsPerUnit);
+                    Sprite newSprite = Sprite.Create(texture, new Rect(i * spliceSizeX, j * spliceSizeY, spliceSizeX, spliceSizeY), new Vector2(0.5f, 0.5f), sprite.pixelsPerUnit);
                     GameObject n = new();
                     SpriteRenderer sr = n.AddComponent<SpriteRenderer>();
                     sr.sprite = newSprite;
