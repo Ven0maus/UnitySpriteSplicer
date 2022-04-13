@@ -13,8 +13,9 @@ namespace Assets.Scripts.Libraries.UnityHelpers
         /// <param name="scale">Optional, sets the scale of the parent container.</param>
         /// <param name="rotation">Optional, sets the rotation of the parent container.</param>
         /// <returns>GameObject containing sprite slices as child gameobjects.</returns>
-        public static GameObject Splice(Sprite sprite, int splices, Vector3? position = null, Vector3? scale = null, Quaternion? rotation = null)
+        public static GameObject Splice(SpriteRenderer renderer, int splices, Vector3? position = null, Vector3? scale = null, Quaternion? rotation = null)
         {
+            var sprite = renderer.sprite;
             var texture = sprite.texture;
             var spliceParent = new GameObject("Splices");
             var spliceSizeX = texture.width / splices;
@@ -35,6 +36,7 @@ namespace Assets.Scripts.Libraries.UnityHelpers
                     GameObject n = new();
                     SpriteRenderer sr = n.AddComponent<SpriteRenderer>();
                     sr.sprite = newSprite;
+                    sr.sortingOrder = renderer.sortingOrder;
                     n.transform.parent = spliceParent.transform;
                     n.transform.localRotation = Quaternion.identity;
                     n.transform.localPosition = new Vector3(prevValueX, prevValueY, 0);
