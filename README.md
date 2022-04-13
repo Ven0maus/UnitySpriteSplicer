@@ -9,7 +9,7 @@ public void Start()
   
     // Spawn spliced gameobject on top of current game object
     const int slices = 4;
-    var spliced = SpriteSplicer.Splice(renderer.sprite, slices, transform.position, transform.localScale, transform.rotation);
+    var spliced = SpriteSplicer.Splice(renderer, slices, transform.position, transform.localScale, transform.rotation);
 
     // Destroy current gameeobject
     Destroy(gameObject);
