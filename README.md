@@ -1,5 +1,7 @@
 # UnitySpriteSplicer
 Slices a sprite into multiple square sprites, supports positioning, rotation and scaling.
+PPU must be the same as the width/height of the sprite.
+So for example: 64x64 : PPU: 64
 
 # Usage
 ```csharp
